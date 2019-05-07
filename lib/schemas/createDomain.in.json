@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "",
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "ReturnPathDomain": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Postmark_Account_Token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

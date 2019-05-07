@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "",
+            "properties": {
+                "DestinationServerId": {
+                    "type": "integer"
+                },
+                "PerformChanges": {
+                    "type": "boolean"
+                },
+                "SourceServerId": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "X_Postmark_Account_Token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

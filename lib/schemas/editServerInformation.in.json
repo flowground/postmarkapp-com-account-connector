@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "serverid": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "",
+            "properties": {
+                "BounceHookUrl": {
+                    "type": "string"
+                },
+                "ClickHookUrl": {
+                    "type": "string"
+                },
+                "Color": {
+                    "type": "string"
+                },
+                "DeliveryHookUrl": {
+                    "type": "string"
+                },
+                "InboundDomain": {
+                    "type": "string"
+                },
+                "InboundHookUrl": {
+                    "type": "string"
+                },
+                "InboundSpamThreshold": {
+                    "type": "integer"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "OpenHookUrl": {
+                    "type": "string"
+                },
+                "PostFirstOpenOnly": {
+                    "type": "boolean"
+                },
+                "RawEmailEnabled": {
+                    "type": "boolean"
+                },
+                "SmtpApiActivated": {
+                    "type": "boolean"
+                },
+                "TrackLinks": {
+                    "enum": [
+                        "None",
+                        "HtmlAndTextTracking",
+                        "HtmlOnlyTracking",
+                        "TextOnlyTracking"
+                    ],
+                    "type": "string"
+                },
+                "TrackOpens": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "X_Postmark_Account_Token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

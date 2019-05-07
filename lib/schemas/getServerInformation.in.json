@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "serverid": {
+            "required": true,
+            "type": "integer"
+        },
+        "X_Postmark_Account_Token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,404 @@
+{
+    "title": "Postmark Account-level",
+    "description": "Postmark makes sending and receiving email\nincredibly easy. The Account-level API allows users to\nconfigure all Servers, Domains, and Sender Signatures associated\nwith an Account.\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/postmarkapp.com/account/0.9.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.postmarkapp.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "listDomains": {
+            "main": "./lib/actions/listDomains.js",
+            "title": "List Domains",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createDomain": {
+            "main": "./lib/actions/createDomain.js",
+            "title": "Create a Domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteDomain": {
+            "main": "./lib/actions/deleteDomain.js",
+            "title": "Delete a Domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomain": {
+            "main": "./lib/actions/getDomain.js",
+            "title": "Get a Domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "editDomain": {
+            "main": "./lib/actions/editDomain.js",
+            "title": "Update a Domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/editDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "rotateDKIMKeyForDomain": {
+            "main": "./lib/actions/rotateDKIMKeyForDomain.js",
+            "title": "Rotate DKIM Key",
+            "description": "Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/rotateDKIMKeyForDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "requestDkimVerificationForDomain": {
+            "main": "./lib/actions/requestDkimVerificationForDomain.js",
+            "title": "Request DNS Verification for DKIM",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/requestDkimVerificationForDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "requestReturnPathVerificationForDomain": {
+            "main": "./lib/actions/requestReturnPathVerificationForDomain.js",
+            "title": "Request DNS Verification for Return-Path",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/requestReturnPathVerificationForDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "requestSPFVerificationForDomain": {
+            "main": "./lib/actions/requestSPFVerificationForDomain.js",
+            "title": "Request DNS Verification for SPF",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/requestSPFVerificationForDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listSenderSignatures": {
+            "main": "./lib/actions/listSenderSignatures.js",
+            "title": "List Sender Signatures",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listSenderSignatures.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createSenderSignature": {
+            "main": "./lib/actions/createSenderSignature.js",
+            "title": "Create a Sender Signature",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteSenderSignature": {
+            "main": "./lib/actions/deleteSenderSignature.js",
+            "title": "Delete a Sender Signature",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSenderSignature": {
+            "main": "./lib/actions/getSenderSignature.js",
+            "title": "Get a Sender Signature",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "editSenderSignature": {
+            "main": "./lib/actions/editSenderSignature.js",
+            "title": "Update a Sender Signature",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/editSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "requestNewDKIMKeyForSenderSignature": {
+            "main": "./lib/actions/requestNewDKIMKeyForSenderSignature.js",
+            "title": "Request a new DKIM Key",
+            "description": "Requests a new DKIM key to be created. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/requestNewDKIMKeyForSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "resendSenderSignatureConfirmationEmail": {
+            "main": "./lib/actions/resendSenderSignatureConfirmationEmail.js",
+            "title": "Resend Signature Confirmation Email",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/resendSenderSignatureConfirmationEmail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "requestSPFVerificationForSenderSignature": {
+            "main": "./lib/actions/requestSPFVerificationForSenderSignature.js",
+            "title": "Request DNS Verification for SPF",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/requestSPFVerificationForSenderSignature.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "listServers": {
+            "main": "./lib/actions/listServers.js",
+            "title": "List servers",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/listServers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createServer": {
+            "main": "./lib/actions/createServer.js",
+            "title": "Create a Server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createServer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteServer": {
+            "main": "./lib/actions/deleteServer.js",
+            "title": "Delete a Server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteServer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getServerInformation": {
+            "main": "./lib/actions/getServerInformation.js",
+            "title": "Get a Server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getServerInformation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "editServerInformation": {
+            "main": "./lib/actions/editServerInformation.js",
+            "title": "Edit a Server",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/editServerInformation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "pushTemplates": {
+            "main": "./lib/actions/pushTemplates.js",
+            "title": "Push templates from one server to another",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/pushTemplates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "signatureid": {
+            "required": true,
+            "type": "integer"
+        },
+        "requestBody": {
+            "description": "",
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "ReplyToEmail": {
+                    "format": "email",
+                    "type": "string"
+                },
+                "ReturnPathDomain": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Postmark_Account_Token": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "postmarkapp-com-account-connector",
+    "version": "0.9.0",
+    "description": "Postmark makes sending and receiving email\nincredibly easy. The Account-level API allows users to\nconfigure all Servers, Domains, and Sender Signatures associated\nwith an Account.\n",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
